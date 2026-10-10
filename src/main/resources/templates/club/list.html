@@ -27,7 +27,7 @@
     <section class="table-card" aria-label="회원 목록">
         <div class="table-responsive" tabindex="0" role="region" aria-label="회원 정보 표. 작은 화면에서는 좌우로 스크롤할 수 있습니다.">
             <table class="table table-hover align-middle mb-0 member-table">
-                <caption class="visually-hidden">동아리 회원의 ID, 이름, 역할, 성별, 학번, 학과</caption>
+                <caption class="visually-hidden">동아리 회원의 ID, 이름, 역할, 성별, 학번, 학부</caption>
                 <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -35,7 +35,7 @@
                     <th scope="col">역할</th>
                     <th scope="col">성별</th>
                     <th scope="col">학번</th>
-                    <th scope="col">학과</th>
+                    <th scope="col">학부</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,9 +43,9 @@
                     <td class="member-id" th:text="${member.id}">1</td>
                     <td class="fw-semibold" th:text="${member.name}">김민준</td>
                     <td><span class="badge role-badge" th:text="${member.role}">회원</span></td>
-                    <td th:text="${member.gender}">응답 안 함</td>
-                    <td th:text="${member.studentId}">20260001</td>
-                    <td th:text="${member.department}">컴퓨터공학과</td>
+                    <td th:text="${member.gender}">남성</td>
+                    <td th:text="${member.studentId}">22200000</td>
+                    <td th:text="${member.department}">AI컴퓨터전자공학부</td>
                 </tr>
                 </tbody>
             </table>
