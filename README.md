@@ -21,7 +21,7 @@ Spring Boot CRUD 프로젝트에 Thymeleaf 와 HTML Form을 활용한 동아리 
 | `role` | `String` | 동아리 내 역할                     |
 | `gender` | `String` | 성별                           |
 | `studentId` | `String` | 학번                           |
-| `department` | `String` | 학과                           |
+| `department` | `String` | 학부                           |
 
 ### Render 배포 URL
 
@@ -37,10 +37,6 @@ sb_crud_webui/
 ├── gradlew / gradlew.bat
 ├── gradle/wrapper/
 ├── README.md
-├── docs/
-│   └── screenshots/
-│       ├── my-member-list.png
-│       └── my-member-form.png
 └── src/
     ├── main/
     │   ├── java/org/example/db/sb_crud_webui/
@@ -63,9 +59,13 @@ sb_crud_webui/
     │       ├── templates/club/
     │       │   ├── list.html
     │       │   └── form.html
-    │       └── static/css/
-    │           ├── bootstrap.min.css
-    │           └── style.css
+    │       └── static/
+    │           ├── css/
+    │           │   ├── bootstrap.min.css
+    │           │   └── style.css
+    │           └── img/
+    │               ├── my-member-list.png
+    │               └── my-member-form.png
     └── test/java/org/example/db/sb_crud_webui/
         └── SbCrudWebuiApplicationTests.java
 ```
@@ -139,7 +139,7 @@ Controller에서 `model.addAttribute("members", clubService.findAll())`로 목�
 따라서 Model에 저장한 이름과 HTML에서 사용하는 이름이 반드시 같아야 한다.
 
 ### 3. Thymeleaf로 Collection 출력
-`th:each="member : ${members}"`는 회원 목록 수 만큼 반복하며 회원마다 HTML로 보여지는 테이블을 생성하게 된다.
+`th:each="member : ${members}"`는 회원 목록을 반복하며 회원마다 테이블의 행(`<tr>`)을 생성함.
 각각에서는 `th:text="${member.name}"`처럼 객체의 필드 값을 출력하게 된다.
 
 ## ④ Weekly Report
