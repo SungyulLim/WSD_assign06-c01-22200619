@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>회원 추가 · 동아리 회원 관리</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="/clubs" th:href="@{/clubs}">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span>동아리 회원 관리</span>
+    </a>
+</header>
+<main class="container page form-page">
+    <a class="back-link" href="/clubs" th:href="@{/clubs}"><span aria-hidden="true">←</span> 회원 목록으로</a>
+    <div class="page-heading">
+        <p class="eyebrow">NEW MEMBER</p>
+        <h1>회원 추가</h1>
+        <p class="page-description">함께할 새로운 회원을 소개해 주세요.</p>
+    </div>
+
+    <form class="form-card" th:action="@{/clubs}" method="post">
+        <div class="form-section-heading d-flex flex-wrap justify-content-between gap-2">
+            <h2>회원 정보</h2>
+            <p>모든 항목을 입력해 주세요.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12">
+                <label class="form-label" for="name">이름</label>
+                <input class="form-control" type="text" id="name" name="name" placeholder="예: 김민준">
+            </div>
+            <div class="col-12 col-md-6">
+                <label class="form-label" for="department">학과</label>
+                <input class="form-control" type="text" id="department" name="department" placeholder="예: 컴퓨터공학과">
+            </div>
+            <div class="col-12 col-md-6">
+                <label class="form-label" for="studentId">학번</label>
+                <input class="form-control" type="text" id="studentId" name="studentId" placeholder="예: 20260001">
+            </div>
+            <div class="col-12 col-md-6">
+                <label class="form-label" for="role">역할</label>
+                <input class="form-control" type="text" id="role" name="role" placeholder="예: 회원">
+            </div>
+            <div class="col-12 col-md-6">
+                <label class="form-label" for="gender">성별</label>
+                <input class="form-control" type="text" id="gender" name="gender" placeholder="예: 응답 안 함">
+            </div>
+        </div>
+        <div class="form-actions d-flex justify-content-end gap-2">
+            <a class="btn btn-outline-secondary" th:href="@{/clubs}">목록으로</a>
+            <button class="btn btn-primary" type="submit">등록</button>
+        </div>
+    </form>
+    <footer class="page-footer">함께 모여, 더 즐거운 동아리.</footer>
+</main>
+</body>
+</html>

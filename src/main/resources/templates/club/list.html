@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>회원 목록 · 동아리 회원 관리</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="/clubs" th:href="@{/clubs}">
+        <span class="brand-mark" aria-hidden="true">C</span>
+        <span>동아리 회원 관리</span>
+    </a>
+</header>
+<main class="container page">
+    <div class="page-heading d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <div>
+            <p class="eyebrow">OUR MEMBERS</p>
+            <h1>회원 목록</h1>
+            <p class="page-description">함께하는 회원 <strong th:text="${memberCount}">0</strong>명</p>
+        </div>
+        <a class="btn btn-primary" href="/clubs/new" th:href="@{/clubs/new}"><span aria-hidden="true">+</span> 회원 추가</a>
+    </div>
+
+    <section class="table-card" aria-label="회원 목록">
+        <div class="table-responsive" tabindex="0" role="region" aria-label="회원 정보 표. 작은 화면에서는 좌우로 스크롤할 수 있습니다.">
+            <table class="table table-hover align-middle mb-0 member-table">
+                <caption class="visually-hidden">동아리 회원의 ID, 이름, 역할, 성별, 학번, 학과</caption>
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">역할</th>
+                    <th scope="col">성별</th>
+                    <th scope="col">학번</th>
+                    <th scope="col">학과</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member : ${members}">
+                    <td class="member-id" th:text="${member.id}">1</td>
+                    <td class="fw-semibold" th:text="${member.name}">김민준</td>
+                    <td><span class="badge role-badge" th:text="${member.role}">회원</span></td>
+                    <td th:text="${member.gender}">응답 안 함</td>
+                    <td th:text="${member.studentId}">20260001</td>
+                    <td th:text="${member.department}">컴퓨터공학과</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <p class="table-hint d-md-none">표를 좌우로 밀면 모든 회원 정보를 볼 수 있어요.</p>
+    <footer class="page-footer">함께 모여, 더 즐거운 동아리.</footer>
+</main>
+</body>
+</html>
