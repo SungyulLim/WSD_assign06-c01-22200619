@@ -37,21 +37,23 @@ public class ClubService {
     public void delete(Long id) { findClub(id); repository.deleteById(id); }
     private void validate(ClubRequest r) {
         if (r.getName() == null || r.getName().isBlank()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Name is required");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"이름이 입력되지 않았습니다.");
         }
         if (r.getRole() == null || r.getRole().isBlank()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Role is required");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"역할이 입력되지 않았습니다. ");
         }
         if (r.getGender() == null || r.getGender().isBlank()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Gender is required");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"성별이 입력되지 않았습니다. ");
         }
         if (r.getStudentId() == null || r.getStudentId().isBlank()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Student ID is required");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"학번이 입력되지 않았습니다. ");
         }
         if (r.getDepartment() == null || r.getDepartment().isBlank()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Department is required");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"학부가 입력되지 않았습니다. ");
         }
     }
-    private Club findClub(Long id) { return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Club not found: "+id)); }
+    private Club findClub(Long id) {
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Club not found: "+id));
+    }
     private ClubResponse toResponse(Club b) { return new ClubResponse(b.getId(),b.getName(),b.getRole(),b.getGender(),b.getStudentId(),b.getDepartment()); }
 }
